@@ -1,9 +1,19 @@
 .calc-row {
     height: 100vh;
     font-family: 'Share Tech Mono', monospace;
+   
+
 }
 
 .input-window {
     text-align: end;
     font-size: x-large;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    background-color: #00ffc8;
+    
 }
