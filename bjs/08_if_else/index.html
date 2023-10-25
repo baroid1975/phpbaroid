@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row game-card align-items-center">
         <div class="col col-md-4 offset-md-4">
-            <div class="card text-center">
+            <div class="card text-center" style="display: none;" id="mainMenu">
                 <div class="card-header">
                     <p class="m-0">Вопрос №<span id="orderNumberField">5</span></p>
                 </div>
@@ -32,6 +32,24 @@
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-link" id="btnRetry">Заново</button>
+                </div>
+            </div>
+            <div class="card text-center" id="menu">
+                <div class="card-header">
+                    <p class="m-0">Игра: угадай число!</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <span>Введите число</span>
+                              <p>от <input type="number" id="minValue" value="0"> </p>
+                            <p>до <input type="number" id="maxValue" value="100"></p>
+                           
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <button class="btnGo">Жми сюда</button>
+                    </div>
                 </div>
             </div>
         </div>
