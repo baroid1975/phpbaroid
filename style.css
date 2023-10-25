@@ -1,19 +1,45 @@
-.calc-row {
-    height: 100vh;
-    font-family: 'Share Tech Mono', monospace;
-   
-
+.game-card {
+    height: 60vh;
+    font-family: 'Open Sans', monospace;
 }
 
-.input-window {
-    text-align: end;
-    font-size: x-large;
-}
+
+
+  .btn-group {
+    justify-content: center;
+    width: 400px;
+}  
+
+  .container {
+    margin-right: 300px;
+    margin-left: -100px;
+    
+}  
+
 .card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
-    background-color: #00ffc8;
+    background-color: rgb(228, 220, 220);
+   
+}  
+
+.card-header {
+    background-color: rgb(211, 204, 204);
+    border: 1px solid rgb(183, 197, 224) ;
+}
+
+.card-footer {
+    background-color: rgba(221, 210, 210, 0.925);
+   
     
 }
+
+#menu{
+    width: 700px;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 300px;
+}
+ #mainMenu {
+    width: 700px;
+    margin-left: 300px;
+} 
+

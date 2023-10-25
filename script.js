@@ -1,145 +1,172 @@
-let lastOperand = 0; /*последний введенный операнд*/
-let operation = null;/*выбранная операция*/
+let mainMenu = document.querySelector('#mainMenu');
+let menu = document.querySelector('#menu');
+let btnGo = document.querySelector('.btnGo');
 
-const inputWindow = document.querySelector('#inputWindow');
+let orderNumber = 1;
+let gameRun = true;
 
+const orderNumberField = document.querySelector('#orderNumberField');
+const answerField = document.querySelector('#answerField');
+orderNumberField.innerText = orderNumber;
 
+const units = ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'];
+const tens = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'];
+const hundreds = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
+let str = '';
 
-/*создадим поведение кнопки 1.*/
-document.querySelector('#btn_1').addEventListener('click', function () {
-    inputWindow.value += '1'; 
-})
-
-document.querySelector('#btn_2').addEventListener('click', function () {
-    inputWindow.value += '2'; 
-})
-
-document.querySelector('#btn_3').addEventListener('click', function () {
-    inputWindow.value += '3'; 
-})
-
-document.querySelector('#btn_4').addEventListener('click', function () {
-    inputWindow.value += '4'; 
-})
-
-document.querySelector('#btn_5').addEventListener('click', function () {
-    inputWindow.value += '5'; 
-})
-
-document.querySelector('#btn_6').addEventListener('click', function () {
-    inputWindow.value += '6'; 
-})
-
-document.querySelector('#btn_7').addEventListener('click', function () {
-    inputWindow.value += '7'; 
-})
-
-document.querySelector('#btn_8').addEventListener('click', function () {
-    inputWindow.value += '8'; 
-})
-
-document.querySelector('#btn_9').addEventListener('click', function () {
-    inputWindow.value += '9'; 
-})
-document.querySelector('#btn_0').addEventListener('click', function () {
-    inputWindow.value += '0'; 
-})
-
-
-document.querySelector('#btn_sum').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
-    operation = 'sum';
-    inputWindow.value = '';
-
-    console.log(lastOperand);
-    console.log(operation);
-    
-})
-
-document.querySelector('#btn_def').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
-    operation = 'def';
-    inputWindow.value = '';
-    
-    console.log(lastOperand);
-    console.log(operation);
-    
-})
-
- document.querySelector('#btn_multiplier').addEventListener('click', function () {
-     lastOperand = parseInt(inputWindow.value);
-     operation = 'multiplier';/* умножения*/
-    inputWindow.value = '';
-
-    
- })
-
-
-  document.querySelector('#btn_sqrt').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
-     operation = 'sqrt';/*квадратный корень*/
-     inputWindow.value = '';
-
-    
-  })
-
-document.querySelector('#btn_del').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
-    operation = 'del';/*деления*/
-    inputWindow.value = '';
-
-    
-})
-
-
-document.querySelector('#btn_calc').addEventListener('click', function () {
-   if(operation === 'sum'){
-    const result = lastOperand + parseInt(inputWindow.value);
-    operation = null; /*очищаем */
-    lastOperand = 0; /*очищаем */
-    inputWindow.value = result;
-   } 
-   if(operation === 'def'){
-    const result = lastOperand - parseInt(inputWindow.value);
-    operation = null; /*очищаем */
-    lastOperand = 0; /*очищаем */
-    inputWindow.value = result;
-   } 
-
-   if(operation === 'multiplier'){
-    const result = lastOperand * parseInt(inputWindow.value);
-    operation = null; /*очищаем */
-    lastOperand = 0; /*очищаем */
-    inputWindow.value = result;
-   } 
-
-   if(operation === 'del'){
-    const result = lastOperand / parseInt(inputWindow.value);
-    operation = null; /*очищаем */
-    lastOperand = 0; /*очищаем */
-    inputWindow.value = result;
-   }
+btnGo.addEventListener('click', function (){ 
+    mainMenu.style.display = 'block';
+    menu.style.display = 'none';
   
-//  if(operation === 'sqrt') {      
-//     const result = lastOperand  parseInt(inputWindow.value);     
-//     operation = null; /*очищаем */
-//    lastOperand = 0; /*очищаем */
-//     inputWindow.value = result;   
 
-//  }
- 
-//inputWindow.value = lastOperand ** (1/2);
+    let minValue = parseInt(document.querySelector('#minValue').value);
+        if (minValue < -999 || minValue > 999) {
+            minValue = 0;
+        }
+        if (minValue != String(minValue)) {
+            minValue = 0;
+        }
+    let maxValue = parseInt(document.querySelector('#maxValue').value);
+        if (maxValue < -999 || maxValue > 999) {
+            maxValue = 100;
+        }
+        if (maxValue != String(maxValue)) {
+        maxValue = 100;
+        }
+    let answerNumber  = Math.floor((minValue + maxValue) / 2);
+        if (answerNumber < 20) {
+            str = units[answerNumber];
+        } else if (answerNumber < 100) {
+            str = tens[Math.floor(answerNumber / 10)];
+            if (answerNumber % 10 !== 0) {
+            str += ' ' + units[answerNumber % 10];
+            }
+        } else if (answerNumber < 1000) {
+            str = hundreds[Math.floor(answerNumber / 100)];
+            if (answerNumber % 100 !== 0) {
+            str += '' + (answerNumber % 100);
+            }
+        }
+    answerField.innerText = `Вы загадали число ${str }?`;
 
-//  function sqrt(){
-//     inputWindow.textContent = Math.sqrt(eval(input.textContent));
-// }
+   
 
-// eval - это встроенная функция, 
-//  оценивает «String» как выражение Python
-//  и возвращает результат как целое число parseInt - для перевода в числовой вид
-document.querySelector('#btn_clr').addEventListener('click', function () {
-    lastOperand = 0;
-    operation = null;
-    inputWindow.value = ''; /*очистка поля*/
-})
-})
+
+    document.querySelector('#btnRetry').addEventListener('click', function () {
+        minValue = 0;
+        maxValue = 100;
+        orderNumber = 1;
+        mainMenu.style.display = 'none';
+        menu.style.display = 'block';
+        orderNumberField.textContent = orderNumber;
+        gameRun = true;
+        str = '';
+        location.reload();
+    });
+
+// строим кнопку больше
+
+    document.querySelector('#btnOver').addEventListener('click', function () {
+        if (gameRun){
+            if (minValue === maxValue){
+                const phraseRandom = Math.round( Math.random() * 2);
+                switch (phraseRandom) {
+                    case 1:
+                        answerField.innerText = answerPhrase = `Вы загадали неправильное число!\n\u{1F914}`;
+                        break;
+                   
+                    default:
+                        answerField.innerText = answerPhrase = `Я сдаюсь..\n\u{1F92F}`;
+                        break;
+                }
+                gameRun = false;
+            } else {
+                minValue = answerNumber+1;
+                answerNumber  = Math.floor((minValue + maxValue) / 2);
+                orderNumber++;
+                orderNumberField.innerText = parseInt(orderNumber);
+                if (answerNumber < 20) {
+                    str = units[answerNumber];
+                  } else if (answerNumber < 100) {
+                    str = tens[Math.floor(answerNumber / 10)];
+                    if (answerNumber % 10 !== 0) {
+                      str += ' ' + units[answerNumber % 10];
+                    }
+                  } else if (answerNumber < 1000) {
+                    str = hundreds[Math.floor(answerNumber / 100)];
+                    if (answerNumber % 100 !== 0) {
+                      str += '' + (answerNumber % 100);
+                    }
+                  }
+                answerField.innerText = `Вы загадали число ${str }?`;
+            }
+        }
+    });
+
+// строим кнопку меньше
+
+    document.querySelector('#btnLess').addEventListener('click', function () {
+        if (gameRun){
+            if (minValue === maxValue){
+                const phraseRandom = Math.round( Math.random() * 2);
+                switch (phraseRandom) {
+                   
+                    case 1:
+                        answerField.innerText = answerPhrase = `Вы загадали неправильное число!\n\u{1F914}`;
+                        break;
+                    default:
+                        answerField.innerText = answerPhrase = `Я сдаюсь..\n\u{1F92F}`;
+                       break;
+                }
+                gameRun = false;
+            } else {
+                maxValue = answerNumber;
+                answerNumber  = Math.floor((minValue + maxValue) / 2);
+                orderNumber++;
+                orderNumberField.innerText = parseInt(orderNumber);
+                if (answerNumber < 20) {
+                    str = units[answerNumber];
+                  } else if (answerNumber < 100) {
+                    str = tens[Math.floor(answerNumber / 10)];
+                    if (answerNumber % 10 !== 0) {
+                      str += ' ' + units[answerNumber % 10];
+                    }
+                  } else if (answerNumber < 1000) {
+                    str = hundreds[Math.floor(answerNumber / 100)];
+                    if (answerNumber % 100 !== 0) {
+                      str += '' + (answerNumber % 100);
+                    }
+                  }
+                answerField.innerText = `Вы загадали число ${str }?`;
+            }
+        }
+    });
+
+
+});
+
+//начало кнопки Верно
+document.querySelector('#btnEqual').addEventListener('click', function () {
+    if (gameRun){
+       const phraseRandom = Math.round( Math.random()*4);
+       switch (phraseRandom) {
+           case 0:
+               answerField.innerText = `Я  всегда выигрываю\n\u{1F60E}`;
+               break;
+           case 1:
+           answerField.innerText = `УРА! Я угадайка\n\u{1F60E}`;
+           break;
+           case 2:
+           answerField.innerText = `Я  угадываю\n\u{1F60E}`;
+            break;
+            case 3:
+           answerField.innerText = `Да это легко\n\u{1F60E}`;
+            break;           
+       }
+      gameRun = false; 
+        }
+   });
+
+
+
+
