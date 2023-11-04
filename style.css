@@ -1,45 +1,31 @@
-.game-card {
-    height: 60vh;
-    font-family: 'Open Sans', monospace;
+body {
+    margin-top: 200px;
+    font-family: 'Sometype Mono', monospace;
 }
 
+.card  {
+    background-color: rgb(232, 235, 235);
+}
 
-
-  .btn-group {
+.buttons {
+    display: flex;
     justify-content: center;
-    width: 400px;
-}  
-
-  .container {
-    margin-right: 300px;
-    margin-left: -100px;
-    
-}  
-
-.card-body {
-    background-color: rgb(228, 220, 220);
-   
-}  
-
-.card-header {
-    background-color: rgb(211, 204, 204);
-    border: 1px solid rgb(183, 197, 224) ;
+    align-items: center;
+    margin-top: 10px;
+    gap: 120px;
 }
 
-.card-footer {
-    background-color: rgba(221, 210, 210, 0.925);
-   
-    
+
+
+#btnGenerator:hover  {
+    background-color: rgb(235, 238, 231);
+    padding: 10px 50px;
+    transition: 480ms;
 }
 
-#menu{
-    width: 700px;
-    font-size: 20px;
-    font-weight: bolder;
-    margin-left: 300px;
+#btnCleaer:hover {
+        background-color: rgb(235, 238, 231);
+    padding: 10px 50px;
+     transition: 580ms; 
 }
- #mainMenu {
-    width: 700px;
-    margin-left: 300px;
-} 
 

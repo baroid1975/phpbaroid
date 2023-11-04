@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Угадайка</title>
+    <title>Генератор случайных пользователей</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
@@ -11,50 +11,41 @@
 <body>
 <div class="container">
     <div class="row game-card align-items-center">
-        <div class="col col-md-4 offset-md-4">
-            <div class="card text-center" style="display: none;" id="mainMenu">
+        <div class="col col-md-6 offset-md-3">
+            <div class="card text-center">
                 <div class="card-header">
-                    <p class="m-0">Вопрос №<span id="orderNumberField">5</span></p>
+                    <p class="m-0">Окно результатов генерации</p>
                 </div>
                 <div class="card-body">
-                    <div class="row no-gutters">
+                    <div class="row">
                         <div class="col">
-                            <h3 class="card-title m-0"><span id="answerField">Вы загадали число 5?</span></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="btn-group">
-                        <button class="btn btn-info" id="btnLess">&#129047;<br>меньше</button>
-                        <button class="btn btn-success btn-lg" id="btnEqual">Верно!</button>
-                        <button class="btn btn-info" id="btnOver">больше<br>&#129045;</button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-link" id="btnRetry">Заново</button>
-                </div>
-            </div>
-            <div class="card text-center" id="menu">
-                <div class="card-header">
-                    <p class="m-0">Игра: угадай число!</span></p>
-                </div>
-                <div class="card-body">
-                    <div class="row no-gutters">
-                        <div class="col">
-                            <span>Введите число</span>
-                              <p>от <input type="number" id="minValue" value="0"> </p>
-                            <p>до <input type="number" id="maxValue" value="100"></p>
                            
+
+                            <h3 class="card-title"><span id="surnameOutput">Генерация фамилии</span></h3>
+                            <h4><span id="firstNameOutput">Имя</span></h4>
+                            <h4> <span id="patronymicOutput">Отчество</span></h4>
+                            <h4>Профессия: <span id="professionOutput">Профессия</span></h4>
+                            <p>
+                                <span id="genderOutput">Генерация пола</span>
+                                <!-- <span>, </span> -->
+                               <span id="birthDayOutput">день рождения</span> 
+                                 <span id="birthMonthOutput">месяц рождения</span>
+                                <span id="birthYearOutput">год рождения</span>                                               
+                            </p>
+                      
+
                         </div>
-                    </div>
-                    <div class="btn">
-                        <button class="btnGo">Жми сюда</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="buttons">
+        <button id="btnGenerator">Активация данных</button>
+        <button id="btnCleaer">Очистить</button>
+    </div>
 </div>
-<script src="script.js"></script>
+<script src="personGenerator.js"></script>
+<script src="init.js"></script>
 </body>
 </html>
