@@ -228,7 +228,6 @@ sortChangeButton.addEventListener('click', () => {
      sortKindLabel.textContent = 'bubbleSort';
 		sortKind = 'bubbleSort';
    }
-   sortKindLabel.textContent === 'bubbleSort' ? sortKindLabel.textContent = 'quickSort' : sortKindLabel.textContent = 'bubbleSort'; //УТОЧНИТЬ БЫЛА РАНЕЕ ЗАКОМЕНТИРОВАННА
 });
 
 //Активации сортировки
